@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>dsrailab — a local-first AI research lab</title>
+<meta name="description" content="dsrailab is a two-node, local-first research environment: a cloud reasoning brain orchestrating local executor models and MCP tooling behind an enforced boundary." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    color-scheme: dark;
+    --bg:      #0A1116;
+    --bg-2:    #0E1920;
+    --bg-3:    #12222B;
+    --line:    #1C333D;
+    --line-2:  #26424E;
+    --text:    #E7EEF0;
+    --dim:     #90A3AA;
+    --faint:   #5E7178;
+    --amber:   #F2A93B;
+    --amber-2: rgba(242,169,59,.14);
+    --live:    #4FD0C0;
+    --live-2:  rgba(79,208,192,.14);
+    --maxw:    1160px;
+    box-sizing: border-box;
+  }
+  *,*::before,*::after{ box-sizing: inherit; }
+
+  html{ scroll-padding-top: calc(4.6rem + env(safe-area-inset-top,0px)); }
+  @media (prefers-reduced-motion: no-preference){ html{ scroll-behavior: smooth; } }
+
+  body{
+    margin:0; background: var(--bg); color: var(--text);
+    font-family:"Archivo", system-ui, sans-serif;
+    font-size:16px; line-height:1.65; -webkit-font-smoothing:antialiased;
+    padding-bottom: env(safe-area-inset-bottom,0px); overflow-x:hidden;
+  }
+  body::before{
+    content:""; position:fixed; inset:0; z-index:0; pointer-events:none;
+    background:
+      radial-gradient(1100px 620px at 82% -8%, rgba(242,169,59,.10), transparent 60%),
+      radial-gradient(900px 560px at -6% 12%, rgba(79,208,192,.07), transparent 62%),
+      linear-gradient(var(--line) 1px, transparent 1px) 0 0 / 100% 92px,
+      var(--bg);
+    opacity:.55;
+  }
+  main, header, footer{ position:relative; z-index:1; }
+  .wrap{ max-width: var(--maxw); margin:0 auto; padding-inline: clamp(1.1rem, 4vw, 2.4rem); }
+  a{ color:inherit; text-decoration:none; }
+  ::selection{ background: var(--amber); color:#0A1116; }
+
+  /* header */
+  header{ position:sticky; top:0; z-index:40;
+    padding-top: calc(.85rem + env(safe-area-inset-top,0px)); padding-bottom:.85rem;
+    background: rgba(10,17,22,.72); backdrop-filter: blur(12px) saturate(1.4);
+    border-bottom:1px solid var(--line); }
+  .bar{ display:flex; align-items:center; gap:1.4rem; }
+  .mark{ display:flex; align-items:center; gap:.6rem; font-weight:700; letter-spacing:-.02em; font-size:1.06rem; }
+  .mark .dot{ width:11px; height:11px; border-radius:2px; background: var(--amber); box-shadow:0 0 0 4px var(--amber-2); }
+  nav{ margin-left:auto; display:flex; gap:1.4rem; align-items:center; }
+  nav a{ color: var(--dim); font-size:.93rem; font-weight:500; transition: color .18s; }
+  nav a:hover{ color: var(--text); }
+  .ghlink{ color: var(--text); border:1px solid var(--line-2); padding:.4rem .8rem; border-radius:7px; font-size:.9rem; }
+  .ghlink:hover{ border-color: var(--amber); color: var(--amber); }
+  @media (max-width: 860px){ nav .navlink{ display:none; } }
+
+  /* hero */
+  .hero{ padding: clamp(3rem,8vw,6.5rem) 0 clamp(2.4rem,6vw,4rem); }
+  .hero-grid{ display:grid; grid-template-columns:1.15fr .85fr; gap: clamp(2rem,5vw,4rem); align-items:center; }
+  @media (max-width: 900px){ .hero-grid{ grid-template-columns:1fr; } }
+  .status-line{ display:inline-flex; align-items:center; gap:.55rem; font-family:"IBM Plex Mono",monospace; font-size:.82rem; color: var(--live); background: var(--live-2); border:1px solid rgba(79,208,192,.28); padding:.3rem .7rem; border-radius:999px; }
+  .status-line .beat{ width:7px; height:7px; border-radius:50%; background: var(--live); }
+  h1{ margin:1.1rem 0 0; font-weight:800; font-size: clamp(2.5rem,6.4vw,5rem); line-height:1.02; letter-spacing:-.035em; }
+  .lede{ margin:1.35rem 0 0; max-width:40ch; color: var(--dim); font-size: clamp(1.02rem,1.6vw,1.18rem); line-height:1.62; }
+  .lede b{ color: var(--text); font-weight:600; }
+  .cta-row{ margin-top:2rem; display:flex; flex-wrap:wrap; gap:.85rem; align-items:center; }
+  .btn{ font-weight:600; font-size:.98rem; padding:.72rem 1.25rem; border-radius:9px; transition: transform .16s, border-color .16s; }
+  .btn.primary{ background: var(--amber); color:#0A1116; }
+  .btn.primary:hover{ transform: translateY(-2px); }
+  .btn.ghost{ color: var(--text); border:1px solid var(--line-2); }
+  .btn.ghost:hover{ border-color: var(--live); color: var(--live); }
+  .facts{ margin-top:2.6rem; display:grid; grid-template-columns: repeat(4,auto); gap: clamp(1.1rem,3vw,2.4rem); font-family:"IBM Plex Mono",monospace; }
+  @media (max-width: 520px){ .facts{ grid-template-columns: repeat(2,auto); gap:1.4rem 2rem; } }
+  .fact .k{ display:block; font-size:.72rem; color: var(--faint); }
+  .fact .v{ display:block; font-size:1.05rem; color: var(--text); margin-top:.15rem; }
+
+  /* status panel */
+  .panel{ background: linear-gradient(180deg,var(--bg-2),#0B161C); border:1px solid var(--line-2); border-radius:16px; padding: clamp(1.1rem,2.4vw,1.5rem); box-shadow:0 30px 60px -30px rgba(0,0,0,.7); }
+  .panel-head{ display:flex; align-items:center; justify-content:space-between; font-family:"IBM Plex Mono",monospace; font-size:.78rem; color: var(--faint); padding-bottom:1rem; border-bottom:1px solid var(--line); }
+  .panel-head .clock{ color: var(--dim); }
+  .chain{ display:flex; flex-direction:column; padding-top:1.1rem; }
+  .chain-lbl{ font-family:"IBM Plex Mono",monospace; font-size:.68rem; letter-spacing:.05em; color: var(--faint); margin:.15rem 0 .55rem; }
+  .chain-lbl.local{ margin-top:.2rem; }
+  .node-b{ border:1px solid var(--line-2); border-radius:11px; padding:.85rem 1rem; background: var(--bg-3); }
+  .node-b .top{ display:flex; align-items:center; gap:.6rem; }
+  .node-b .name{ font-weight:600; font-size:.98rem; }
+  .node-b .sub{ font-family:"IBM Plex Mono",monospace; font-size:.76rem; color: var(--dim); margin-top:.3rem; }
+  .m-amber{ width:9px; height:9px; border-radius:2px; background: var(--amber); box-shadow:0 0 10px var(--amber); }
+  .m-live{ width:9px; height:9px; border-radius:50%; background: var(--live); }
+  .tag{ display:inline-block; margin-top:.55rem; font-family:"IBM Plex Mono",monospace; font-size:.74rem; color: var(--amber); background: var(--amber-2); border:1px solid rgba(242,169,59,.3); padding:.16rem .5rem; border-radius:5px; }
+  .conn{ width:2px; height:26px; margin-inline:auto; background: linear-gradient(var(--amber),var(--live)); opacity:.7; }
+  .execs{ display:grid; grid-template-columns:1fr 1fr; gap:.7rem; }
+  @media (max-width: 380px){ .execs{ grid-template-columns:1fr; } }
+  @media (prefers-reduced-motion: no-preference){
+    .beat, .m-live{ animation: pulse 2.4s ease-in-out infinite; }
+    @keyframes pulse{ 0%,100%{ box-shadow:0 0 0 0 rgba(79,208,192,.5);} 50%{ box-shadow:0 0 0 6px rgba(79,208,192,0);} }
+  }
+
+  /* sections */
+  section.block{ padding: clamp(3rem,7vw,5.5rem) 0; border-top:1px solid var(--line); }
+  .eyebrow{ font-family:"IBM Plex Mono",monospace; font-size:.78rem; color: var(--amber); }
+  h2{ font-weight:700; font-size: clamp(1.6rem,3.6vw,2.4rem); letter-spacing:-.02em; line-height:1.1; margin:.6rem 0 0; max-width:22ch; }
+  .prose{ margin-top:1.3rem; max-width:62ch; color: var(--dim); }
+  .prose p{ margin:0 0 1rem; }
+  .prose b{ color: var(--text); font-weight:600; }
+  .prose code{ font-family:"IBM Plex Mono",monospace; font-size:.85em; color: var(--live); }
+
+  /* benefits matrix */
+  .bgrid{ display:grid; grid-template-columns: repeat(3,1fr); gap:1px; background: var(--line); border:1px solid var(--line); border-radius:14px; overflow:hidden; margin-top:2.2rem; }
+  @media (max-width: 720px){ .bgrid{ grid-template-columns:1fr 1fr; } }
+  @media (max-width: 440px){ .bgrid{ grid-template-columns:1fr; } }
+  .bcell{ background: var(--bg-2); padding:1.25rem 1.25rem; }
+  .bcell .bk{ font-weight:600; font-size:1rem; }
+  .bcell .bt{ margin-top:.45rem; color: var(--dim); font-size:.9rem; line-height:1.55; }
+
+  /* nodes */
+  .nodes{ display:grid; grid-template-columns:1fr 1fr; gap: clamp(1rem,2.5vw,1.6rem); margin-top:2.4rem; }
+  @media (max-width: 780px){ .nodes{ grid-template-columns:1fr; } }
+  .spec{ border:1px solid var(--line-2); border-radius:14px; padding: clamp(1.2rem,2.6vw,1.6rem); background: linear-gradient(180deg,var(--bg-2),transparent); }
+  .spec .sid{ font-family:"IBM Plex Mono",monospace; font-size:.78rem; color: var(--faint); }
+  .spec h3{ margin:.4rem 0 1.1rem; font-size:1.3rem; font-weight:700; letter-spacing:-.01em; }
+  .spec dl{ margin:0; display:grid; grid-template-columns:5rem 1fr; gap:.55rem 1rem; }
+  .spec dt{ font-family:"IBM Plex Mono",monospace; font-size:.74rem; color: var(--faint); padding-top:.15rem; }
+  .spec dd{ margin:0; font-size:.96rem; color: var(--text); }
+  .spec dd .mono{ font-family:"IBM Plex Mono",monospace; font-size:.85rem; color: var(--amber); }
+  .spec dd .role{ color: var(--dim); }
+
+  /* router steps */
+  .steps{ margin-top:2.4rem; display:grid; gap:0; counter-reset: step; }
+  .step{ display:grid; grid-template-columns:3.2rem 1fr; gap:1.2rem; padding:1.3rem 0; border-top:1px dashed var(--line); align-items:baseline; }
+  .step:first-child{ border-top:none; }
+  .step .n{ font-family:"IBM Plex Mono",monospace; font-size:.95rem; color: var(--amber); }
+  .step .n::before{ counter-increment: step; content:"0" counter(step); }
+  .step .t{ font-weight:600; font-size:1.08rem; }
+  .step .d{ color: var(--dim); font-size:.96rem; margin-top:.25rem; max-width:56ch; }
+  .router-foot{ margin-top:2rem; display:flex; flex-wrap:wrap; gap:1rem; align-items:center; }
+  .verpill{ font-family:"IBM Plex Mono",monospace; font-size:.78rem; color: var(--dim); border:1px solid var(--line-2); border-radius:7px; padding:.4rem .7rem; }
+  .repo{ font-family:"IBM Plex Mono",monospace; font-size:.82rem; color: var(--live); }
+  .repo:hover{ color: var(--amber); }
+
+  /* programs registry */
+  .prog{ display:grid; grid-template-columns:1fr 1fr; gap: clamp(1rem,2.4vw,1.4rem); margin-top:2.6rem; }
+  @media (max-width: 820px){ .prog{ grid-template-columns:1fr; } }
+  .prog-item{ border:1px solid var(--line-2); border-radius:14px; padding: clamp(1.25rem,2.6vw,1.6rem); background: linear-gradient(180deg,var(--bg-2),transparent); display:flex; flex-direction:column; }
+  .prog-item .pid{ font-family:"IBM Plex Mono",monospace; font-size:.75rem; color: var(--faint); }
+  .prog-item h3{ margin:.4rem 0 0; font-size:1.22rem; font-weight:700; letter-spacing:-.01em; }
+  .prog-item .what{ margin:.85rem 0 1.1rem; color: var(--dim); font-size:.93rem; line-height:1.6; }
+  .prog-item .who{ margin:auto 0 0; display:grid; grid-template-columns: 6.4rem 1fr; gap:.55rem .9rem; border-top:1px solid var(--line); padding-top:1rem; }
+  .prog-item .who dt{ font-family:"IBM Plex Mono",monospace; font-size:.7rem; color: var(--live); padding-top:.2rem; }
+  .prog-item .who dd{ margin:0; font-size:.9rem; color: var(--text); line-height:1.5; }
+
+  /* reach band */
+  .reach{ padding: clamp(2.2rem,5vw,3.4rem) 0; border-top:1px solid var(--line); }
+  .reach p{ margin:0; max-width:64ch; color: var(--dim); font-size:1.05rem; }
+  .reach .addr{ font-family:"IBM Plex Mono",monospace; color: var(--amber); }
+
+  /* footer */
+  footer{ border-top:1px solid var(--line); padding:2.6rem 0 3.2rem; }
+  .foot-grid{ display:flex; flex-wrap:wrap; gap:1rem 2rem; align-items:center; justify-content:space-between; }
+  .foot-mark{ display:flex; align-items:center; gap:.55rem; font-weight:700; letter-spacing:-.02em; }
+  .foot-mark .dot{ width:10px; height:10px; border-radius:2px; background: var(--amber); }
+  .foot-grid .meta{ font-family:"IBM Plex Mono",monospace; font-size:.8rem; color: var(--faint); }
+
+  @media (prefers-reduced-motion: no-preference){
+    .anim{ opacity:0; transform: translateY(14px); animation: rise .7s cubic-bezier(.2,.7,.2,1) forwards; }
+    .d1{animation-delay:.05s}.d2{animation-delay:.16s}.d3{animation-delay:.27s}.d4{animation-delay:.38s}.d5{animation-delay:.5s}
+    @keyframes rise{ to{ opacity:1; transform:none; } }
+  }
+  :focus-visible{ outline:2px solid var(--live); outline-offset:3px; border-radius:4px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a href="#top" class="mark"><span class="dot"></span>dsrailab</a>
+    <nav>
+      <a class="navlink" href="#system">System</a>
+      <a class="navlink" href="#local">Local</a>
+      <a class="navlink" href="#router">Router</a>
+      <a class="navlink" href="#programs">Programs</a>
+      <a class="navlink" href="#security">Security</a>
+      <a class="ghlink" href="https://github.com/dineshsrivastava07-cell" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="status-line anim d1"><span class="beat"></span>2 nodes · online</span>
+        <h1 class="anim d2">Compute that stays on the desk.</h1>
+        <p class="lede anim d3"><b>dsrailab</b> is a two-node, local-first research environment. A cloud reasoning brain orchestrates local executor models and MCP tooling over a private tunnel — independent nodes, least configuration, nothing that can't be rebuilt from a repository.</p>
+        <div class="cta-row anim d4">
+          <a class="btn primary" href="#programs">See what it builds</a>
+          <a class="btn ghost" href="#router">How the router works</a>
+        </div>
+        <div class="facts anim d5">
+          <div class="fact"><span class="k">nodes</span><span class="v">02</span></div>
+          <div class="fact"><span class="k">uptime</span><span class="v">always-on</span></div>
+          <div class="fact"><span class="k">auth</span><span class="v">OAuth only</span></div>
+          <div class="fact"><span class="k">clock</span><span class="v">IST</span></div>
+        </div>
+      </div>
+
+      <div class="panel anim d3" aria-label="Live system topology">
+        <div class="panel-head"><span>system status</span><span class="clock" id="clock">--:--:-- IST</span></div>
+        <div class="chain">
+          <div class="chain-lbl">cloud tiers</div>
+          <div class="node-b">
+            <div class="top"><span class="m-amber"></span><span class="name">Claude · OAuth</span></div>
+            <div class="sub">reasoning brain · cloud</div>
+          </div>
+          <div class="conn"></div>
+          <div class="node-b">
+            <div class="top"><span class="m-amber"></span><span class="name">qwen3-coder-480b</span></div>
+            <div class="sub">heavyweight cloud coder</div>
+          </div>
+          <div class="conn"></div>
+          <div class="node-b">
+            <div class="top"><span class="m-amber"></span><span class="name">intercept.py</span></div>
+            <div class="sub">PreToolUse router + tier-enforcer</div>
+          </div>
+          <div class="conn"></div>
+          <div class="chain-lbl local">local nodes · gemma4</div>
+          <div class="execs">
+            <div class="node-b">
+              <div class="top"><span class="m-live"></span><span class="name">node 01</span></div>
+              <div class="sub">always-on server</div>
+              <span class="tag">gemma4</span>
+            </div>
+            <div class="node-b">
+              <div class="top"><span class="m-live"></span><span class="name">node 02</span></div>
+              <div class="sub">workstation</div>
+              <span class="tag">gemma4</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="system">
+    <div class="wrap">
+      <span class="eyebrow">the thesis</span>
+      <h2>One brain, many local hands.</h2>
+      <div class="prose">
+        <p>The lab separates reasoning from execution. A cloud model holds the plan and makes the hard calls; small local models do the volume work — <b>code, retrieval, embeddings, drafting</b> — with nothing leaving the network unless a decision genuinely needs the brain.</p>
+        <p>Everything runs under one rule: the two nodes never depend on each other. Either can be wiped and rebuilt on its own, and the system still stands. What sits on top of that base is a set of specialised programs — coding, knowledge work, design, data, and context — that all share the same router, the same enforced boundary, and the same local-first default.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="local">
+    <div class="wrap">
+      <span class="eyebrow">why it runs local</span>
+      <h2>Local-first is a security posture, not a preference.</h2>
+      <div class="prose">
+        <p>Running the models next to the data changes what's possible and what's exposed. Iteration stops costing money, latency drops to the network's own speed, and the hardest question in enterprise AI — <b>where did the data go</b> — has a boring answer: it stayed here.</p>
+      </div>
+      <div class="bgrid">
+        <div class="bcell"><div class="bk">Data sovereignty</div><div class="bt">Content stays on the network. Nothing is sampled, logged, or trained on somewhere else.</div></div>
+        <div class="bcell"><div class="bk">No metering</div><div class="bt">Bulk generation, embeddings, and iteration cost nothing per token, so agent loops can run long.</div></div>
+        <div class="bcell"><div class="bk">Low latency</div><div class="bt">Models sit beside the data instead of across a public API on the far side of the internet.</div></div>
+        <div class="bcell"><div class="bk">Offline resilience</div><div class="bt">The lab keeps working when the connection doesn't. Cloud reasoning is an enhancement, not a dependency.</div></div>
+        <div class="bcell"><div class="bk">Reproducible</div><div class="bt">Every service rebuilds from a repository. No hidden state, no undocumented setup, no drift.</div></div>
+        <div class="bcell"><div class="bk">Enforced boundary</div><div class="bt">One audited gate decides what may ever reach the cloud — and refuses everything else by default.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="nodes">
+    <div class="wrap">
+      <span class="eyebrow">the two nodes</span>
+      <h2>Two nodes, drawn on purpose.</h2>
+      <div class="nodes">
+        <div class="spec">
+          <div class="sid">node 01 — always-on server</div>
+          <h3>The server</h3>
+          <dl>
+            <dt>models</dt><dd><span class="mono">gemma4</span> &nbsp;·&nbsp; <span class="mono">nomic-embed-text</span></dd>
+            <dt>runtime</dt><dd>Containerised services, kept warm</dd>
+            <dt>role</dt><dd class="role">Persistent services, retrieval, and embeddings that never sleep.</dd>
+          </dl>
+        </div>
+        <div class="spec">
+          <div class="sid">node 02 — workstation</div>
+          <h3>The workstation</h3>
+          <dl>
+            <dt>models</dt><dd><span class="mono">gemma4</span> &nbsp;·&nbsp; tier harness</dd>
+            <dt>runtime</dt><dd>Containerised services, interactive</dd>
+            <dt>role</dt><dd class="role">Interactive development and the routing brain.</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="router">
+    <div class="wrap">
+      <span class="eyebrow">the routing layer</span>
+      <h2>The tier router.</h2>
+      <div class="prose">
+        <p>A single hook decides where each task goes. Work passes through a <b>PreToolUse interceptor</b> that classifies it and dispatches to the right backend — reasoning to the cloud brain, everything else to a local executor. A stdio tier-enforcer guards the boundary so nothing silently escalates.</p>
+      </div>
+      <div class="steps">
+        <div class="step"><span class="n"></span><div><div class="t">Classify</div><div class="d"><code>intercept.py</code> reads the pending tool call and scores the work against the tier map.</div></div></div>
+        <div class="step"><span class="n"></span><div><div class="t">Route</div><div class="d">Reasoning and review stay with Claude over OAuth; heavy generation escalates to a cloud coder; the volume runs on local Gemma 4 executors.</div></div></div>
+        <div class="step"><span class="n"></span><div><div class="t">Enforce</div><div class="d">A <code>FastMCP</code> stdio tier-enforcer holds the boundary across a six-layer harness.</div></div></div>
+        <div class="step"><span class="n"></span><div><div class="t">Return</div><div class="d">The brain only ever sees what actually needs a decision.</div></div></div>
+      </div>
+      <div class="router-foot">
+        <span class="verpill">Claude Tier System · v10.1</span>
+        <span class="verpill">six-layer harness</span>
+        <span class="verpill">production-grade · local-first</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="programs">
+    <div class="wrap">
+      <span class="eyebrow">what the lab builds</span>
+      <h2>Seven programs on one substrate.</h2>
+      <div class="prose">
+        <p>Each program is a specialisation with its own crew of models and MCP tools, and each earns its keep the same way — local where it can, cloud where it must, private throughout. Two of them are foundations the rest stand on: a context layer that remembers, and an orchestration layer that decides.</p>
+      </div>
+
+      <div class="prog">
+
+        <div class="prog-item">
+          <div class="pid">program 01</div>
+          <h3>Claude tier — coding system</h3>
+          <p class="what">A production-grade, local-first coding system: a Claude-only reasoning brain over a six-layer harness, a tier of local Gemma 4 executors for the volume of generation, and a heavyweight cloud coder (qwen3-coder-480b) for the hardest work. The brain plans and reviews; local models write, run, and iterate; the harness decides what is worth escalating.</p>
+          <dl class="who">
+            <dt>individuals</dt><dd>Cloud-grade code, but most tokens run free and on-machine — no key sprawl, no meter anxiety on long runs.</dd>
+            <dt>businesses</dt><dd>Bounded reasoning spend with an auditable line for where code and data are allowed to travel.</dd>
+          </dl>
+        </div>
+
+        <div class="prog-item">
+          <div class="pid">program 02</div>
+          <h3>dsr-CoworkAI</h3>
+          <p class="what">An agentic knowledge-work partner that runs briefs, research, drafting, and multi-step tasks against local models first, escalating to the brain only for judgment. MCP connects it to documents, calendars, and tools without handing them to a third party.</p>
+          <dl class="who">
+            <dt>individuals</dt><dd>A private operator for the daily grind — notes, research, prep — that keeps your material on your own network.</dd>
+            <dt>businesses</dt><dd>Sensitive workflows in HR, legal, and finance run without shipping their contents to an external API.</dd>
+          </dl>
+        </div>
+
+        <div class="prog-item">
+          <div class="pid">program 03</div>
+          <h3>DSR-codesign</h3>
+          <p class="what">An agentic design-and-build loop: turn intent into working interfaces and prototypes, iterate on layout and behaviour with a model in the loop, and hand off clean, reproducible artifacts. Local models generate the volume of variants; the brain arbitrates structure and taste.</p>
+          <dl class="who">
+            <dt>individuals</dt><dd>Go from a sketch to a running prototype without a front-end team, exploring many directions cheaply.</dd>
+            <dt>businesses</dt><dd>Compress the design-to-prototype cycle and produce spec-backed handoffs engineering can build from directly.</dd>
+          </dl>
+        </div>
+
+        <div class="prog-item">
+          <div class="pid">program 04</div>
+          <h3>Data Architect</h3>
+          <p class="what">A local-first data agent that models schemas, wires pipelines, and answers questions over a warehouse — natural language to SQL, semantic layers, and quality checks — with embeddings and retrieval held inside the perimeter.</p>
+          <dl class="who">
+            <dt>individuals</dt><dd>Query and shape your own data without memorising a dialect or standing up heavy tooling.</dd>
+            <dt>businesses</dt><dd>Governed, explainable access to the warehouse for everyone, with PII kept inside the boundary because retrieval runs locally.</dd>
+          </dl>
+        </div>
+
+        <div class="prog-item">
+          <div class="pid">program 05</div>
+          <h3>AGI layer</h3>
+          <p class="what">The orchestration layer that composes the crews — routing a goal across coding, knowledge, design, and data agents, holding shared state, and choosing which specialist and which tier each step needs. Not a claim of general intelligence: a general-purpose coordinator over specialised, verifiable parts.</p>
+          <dl class="who">
+            <dt>individuals</dt><dd>One entry point that breaks a messy goal into the right sequence of agents and tools.</dd>
+            <dt>businesses</dt><dd>Cross-function work runs as one supervised process with a clear trail of what ran where, and why.</dd>
+          </dl>
+        </div>
+
+        <div class="prog-item">
+          <div class="pid">program 06</div>
+          <h3>Obsidian hub — with local</h3>
+          <p class="what">A knowledge hub that turns a personal vault and its graph into live context — connected through MCP to the agents, versioned in Git, synced with the tools already in use — with search and embeddings served by local models.</p>
+          <dl class="who">
+            <dt>individuals</dt><dd>Your notes become a queryable second brain every agent can read and write, privately.</dd>
+            <dt>businesses</dt><dd>Institutional knowledge stays owned and searchable; runbooks and decisions become context, not dead documents.</dd>
+          </dl>
+        </div>
+
+        <div class="prog-item">
+          <div class="pid">program 07</div>
+          <h3>SynaptIQ — context intelligence</h3>
+          <p class="what">The shared context substrate beneath everything — a private memory and knowledge-graph layer of retrieval, embeddings, and relationships that gives every agent long-lived, relevant context instead of a cold start each session. Local by default, so context accrues without ever leaving the network.</p>
+          <dl class="who">
+            <dt>individuals</dt><dd>Agents that remember your projects, people, and preferences across sessions — without handing that memory to a vendor.</dd>
+            <dt>businesses</dt><dd>The context graph is the moat: agents sharpen with use and the knowledge compounds inside the organisation, not inside someone else's model.</dd>
+          </dl>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="build">
+    <div class="wrap">
+      <span class="eyebrow">research · test · build</span>
+      <h2>MCP is the socket. Local is the sandbox.</h2>
+      <div class="prose">
+        <p>Local models turn iteration into a free operation. Large agent loops, evaluation runs, and adversarial tests all execute on-machine, so behaviour is validated at volume without a meter running — the difference between reading about an agent's failure mode and reproducing it a thousand times before it reaches anything real.</p>
+        <p><b>MCP is the standard socket.</b> Every tool, dataset, and vault plugs into the agents through one protocol, so new capability composes instead of being re-integrated each time. The same harness that runs experiments runs production, which means what you validate is what ships — new behaviour is prototyped on local models, gated through the enforcer, and promoted to the brain only where judgment is genuinely required.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="security">
+    <div class="wrap">
+      <span class="eyebrow">security &amp; resilience</span>
+      <h2>Default closed. Independent by design.</h2>
+      <div class="prose">
+        <p>The default is closed. Content leaves the perimeter only when a decision genuinely needs the brain, and that path is explicit — an agent cannot quietly route sensitive work to the cloud, because the tier-enforcer holds the boundary rather than trusting the model to respect it.</p>
+        <p>Credentials are the usual leak. The brain authenticates over <b>OAuth with no API keys written to disk</b>, removing a whole class of exposure; the nodes reach each other over a private WireGuard mesh behind a Cloudflare Tunnel and are never published directly to the internet.</p>
+        <p>Independence is the resilience story. The two nodes share nothing, so either can fail without taking the system with it, and recovery is a repository checkout rather than a backup restore. Because every service is reproducible, the worst case is measured in minutes.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="reach">
+    <div class="wrap">
+      <p>Reached over a WireGuard mesh and a Cloudflare Tunnel, published at <span class="addr">dsrailab.com</span>.</p>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="wrap foot-grid">
+    <div class="foot-mark"><span class="dot"></span>dsrailab</div>
+    <div class="meta">independent AI research · Delhi NCR · IST</div>
+    <div class="meta">© <span id="yr">2026</span> dsrailab.com</div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  const clock = document.getElementById('clock');
+  function tick(){
+    clock.textContent = new Date().toLocaleTimeString('en-GB',{ timeZone:'Asia/Kolkata', hour12:false }) + ' IST';
+  }
+  tick(); setInterval(tick, 1000);
+</script>
+</body>
+</html>
