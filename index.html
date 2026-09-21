@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>dsrailab — a local-first AI research lab</title>
-<meta name="description" content="dsrailab is a two-node, local-first research environment: a cloud reasoning brain orchestrating local executor models and MCP tooling behind an enforced boundary." />
+<title>dsrailab — Dinesh Srivastava | AI Leadership &amp; Engineering</title>
+<meta name="description" content="Dinesh Srivastava is an enterprise technology leader and hands-on AI engineer building agentic systems, MCP platforms, data architecture, and secure local-first AI at dsrailab." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -117,6 +117,30 @@
   .prose b{ color: var(--text); font-weight:600; }
   .prose code{ font-family:"IBM Plex Mono",monospace; font-size:.85em; color: var(--live); }
 
+  /* founder profile */
+  .about-grid{ display:grid; grid-template-columns:1.12fr .88fr; gap: clamp(2rem,5vw,4.4rem); align-items:start; }
+  @media (max-width: 860px){ .about-grid{ grid-template-columns:1fr; } }
+  .about-copy h2{ max-width:20ch; }
+  .profile-links{ display:flex; flex-wrap:wrap; gap:.7rem; margin-top:1.6rem; }
+  .profile-link{ font-family:"IBM Plex Mono",monospace; font-size:.78rem; color:var(--live); border:1px solid var(--line-2); border-radius:7px; padding:.46rem .72rem; transition:border-color .16s,color .16s; }
+  .profile-link:hover{ color:var(--amber); border-color:var(--amber); }
+  .profile-card{ background:linear-gradient(160deg,var(--bg-3),var(--bg-2)); border:1px solid var(--line-2); border-radius:16px; padding:clamp(1.3rem,3vw,1.8rem); box-shadow:0 28px 55px -36px rgba(0,0,0,.8); }
+  .profile-card .label{ font-family:"IBM Plex Mono",monospace; font-size:.7rem; letter-spacing:.06em; text-transform:uppercase; color:var(--amber); }
+  .profile-card h3{ margin:.45rem 0 .2rem; font-size:clamp(1.45rem,3vw,2rem); line-height:1.15; letter-spacing:-.02em; }
+  .profile-card .role{ color:var(--dim); font-size:.95rem; }
+  .profile-card .place{ margin-top:.7rem; font-family:"IBM Plex Mono",monospace; font-size:.76rem; color:var(--faint); }
+  .profile-metrics{ display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line); border-radius:11px; overflow:hidden; margin-top:1.35rem; }
+  .profile-metric{ background:rgba(10,17,22,.7); padding:.9rem; }
+  .profile-metric strong{ display:block; color:var(--text); font-size:1.18rem; line-height:1.2; }
+  .profile-metric span{ display:block; margin-top:.25rem; color:var(--faint); font-family:"IBM Plex Mono",monospace; font-size:.68rem; }
+  .expertise-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px; margin-top:2.6rem; background:var(--line); border:1px solid var(--line); border-radius:14px; overflow:hidden; }
+  @media (max-width: 820px){ .expertise-grid{ grid-template-columns:1fr 1fr; } }
+  @media (max-width: 520px){ .expertise-grid{ grid-template-columns:1fr; } }
+  .expertise-card{ background:var(--bg-2); padding:1.25rem; }
+  .expertise-card .num{ font-family:"IBM Plex Mono",monospace; font-size:.7rem; color:var(--amber); }
+  .expertise-card h3{ margin:.4rem 0 .5rem; font-size:1.02rem; line-height:1.35; }
+  .expertise-card p{ margin:0; color:var(--dim); font-size:.88rem; line-height:1.55; }
+
   /* benefits matrix */
   .bgrid{ display:grid; grid-template-columns: repeat(3,1fr); gap:1px; background: var(--line); border:1px solid var(--line); border-radius:14px; overflow:hidden; margin-top:2.2rem; }
   @media (max-width: 720px){ .bgrid{ grid-template-columns:1fr 1fr; } }
@@ -187,6 +211,7 @@
   <div class="wrap bar">
     <a href="#top" class="mark"><span class="dot"></span>dsrailab</a>
     <nav>
+      <a class="navlink" href="#about">About</a>
       <a class="navlink" href="#system">System</a>
       <a class="navlink" href="#local">Local</a>
       <a class="navlink" href="#router">Router</a>
@@ -250,6 +275,49 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="about">
+    <div class="wrap">
+      <div class="about-grid">
+        <div class="about-copy">
+          <span class="eyebrow">founder &amp; technical leadership</span>
+          <h2>Strategy at board level. Engineering at system level.</h2>
+          <div class="prose">
+            <p><b>Dinesh Srivastava</b> is an enterprise technology leader and hands-on AI engineer with more than two decades of experience spanning IT strategy, digital transformation, data platforms, cybersecurity, and applied artificial intelligence.</p>
+            <p>He has led technology at national retail scale across a network of <b>570+ stores serving Tier 2, 3, and 4 markets in India</b>. At dsrailab, he turns that operating perspective into working systems: production LLM architecture, multi-agent orchestration, MCP integrations, governed data platforms, and secure local-first infrastructure.</p>
+            <p>His approach is deliberately practical and provider-neutral: define the business outcome, design the controls, build the platform, and verify the behaviour. The work connects long-horizon leadership with the discipline to write, test, and ship the code.</p>
+          </div>
+          <div class="profile-links" aria-label="Dinesh Srivastava professional links">
+            <a class="profile-link" href="https://www.linkedin.com/in/dinesh-srivastav-a937594a" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="profile-link" href="https://github.com/dineshsrivastava07-cell" target="_blank" rel="noopener">GitHub</a>
+            <a class="profile-link" href="mailto:dsr07@dsrailab.com">Email</a>
+          </div>
+        </div>
+
+        <aside class="profile-card" aria-label="Dinesh Srivastava profile summary">
+          <div class="label">leadership profile</div>
+          <h3>Dinesh Srivastava</h3>
+          <div class="role">VP - Information Technology<br />Enterprise AI &amp; Agentic Systems</div>
+          <div class="place">Gurgaon / Delhi NCR · India</div>
+          <div class="profile-metrics">
+            <div class="profile-metric"><strong>20+</strong><span>years in technology</span></div>
+            <div class="profile-metric"><strong>570+</strong><span>stores at enterprise scale</span></div>
+            <div class="profile-metric"><strong>18</strong><span>professional credentials</span></div>
+            <div class="profile-metric"><strong>02</strong><span>local-first lab nodes</span></div>
+          </div>
+        </aside>
+      </div>
+
+      <div class="expertise-grid" aria-label="Technical expertise">
+        <article class="expertise-card"><span class="num">01</span><h3>Enterprise AI &amp; Agentic Systems</h3><p>Production LLM and multi-agent architecture, reasoning and planning, tool orchestration, RAG, evaluation, and reliable human-supervised workflows.</p></article>
+        <article class="expertise-card"><span class="num">02</span><h3>MCP &amp; Agent-Skill Engineering</h3><p>MCP server and client design, reusable agent skills, and integration patterns that connect knowledge, code, data, and enterprise workflows.</p></article>
+        <article class="expertise-card"><span class="num">03</span><h3>Data &amp; Platform Architecture</h3><p>End-to-end platforms across Postgres, pgvector, and ClickHouse, from ingestion and vectorization through governed analytics.</p></article>
+        <article class="expertise-card"><span class="num">04</span><h3>Cybersecurity &amp; Governance</h3><p>Postgraduate-certified security practice, threat modelling, privacy-aware architecture, PII isolation, and controls embedded across delivery.</p></article>
+        <article class="expertise-card"><span class="num">05</span><h3>IT Strategy &amp; Transformation</h3><p>Multi-year technology roadmaps, team and operating-model design, and retail and supply-chain digitization across hybrid estates.</p></article>
+        <article class="expertise-card"><span class="num">06</span><h3>Hands-on Engineering</h3><p>Python, FastAPI, Docker, Ollama, local and cloud models, agent toolchains, vector search, analytical systems, and reproducible infrastructure.</p></article>
       </div>
     </div>
   </section>
