@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>dsrailab — Dinesh Srivastava | AI Leadership &amp; Engineering</title>
-<meta name="description" content="Dinesh Srivastava is an enterprise technology leader and hands-on AI engineer building agentic systems, MCP platforms, data architecture, and secure local-first AI at dsrailab." />
+<meta name="description" content="Dinesh Srivastava is an enterprise technology leader and hands-on AI engineer building agentic systems, MCP platforms, secure local-first AI, and the dsr-OMS omnichannel retail platform." />
 <meta name="theme-color" content="#0A1116" />
 <meta name="mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -193,6 +193,40 @@
   .prog-item .who dt{ font-family:"IBM Plex Mono",monospace; font-size:.7rem; color: var(--live); padding-top:.2rem; }
   .prog-item .who dd{ margin:0; font-size:.9rem; color: var(--text); line-height:1.5; }
 
+  /* dsr-OMS */
+  .oms-head{ display:grid; grid-template-columns:1.15fr .85fr; gap:clamp(2rem,5vw,4rem); align-items:start; }
+  @media (max-width:860px){ .oms-head{ grid-template-columns:1fr; } }
+  .oms-head h2{ max-width:19ch; }
+  .oms-status{ background:linear-gradient(155deg,var(--bg-3),var(--bg-2)); border:1px solid var(--line-2); border-radius:16px; padding:clamp(1.25rem,3vw,1.7rem); }
+  .oms-status-top{ display:flex; justify-content:space-between; gap:1rem; align-items:center; font-family:"IBM Plex Mono",monospace; font-size:.72rem; color:var(--faint); }
+  .oms-status-pill{ color:var(--live); background:var(--live-2); border:1px solid rgba(79,208,192,.28); border-radius:999px; padding:.25rem .55rem; }
+  .oms-status h3{ margin:.9rem 0 .45rem; font-size:1.35rem; line-height:1.25; }
+  .oms-status p{ margin:0; color:var(--dim); font-size:.9rem; line-height:1.55; }
+  .oms-kpis{ display:grid; grid-template-columns:1fr 1fr; gap:1px; margin-top:1.25rem; background:var(--line); border:1px solid var(--line); border-radius:10px; overflow:hidden; }
+  .oms-kpi{ background:rgba(10,17,22,.72); padding:.85rem; }
+  .oms-kpi strong{ display:block; color:var(--text); font-size:1.05rem; }
+  .oms-kpi span{ display:block; margin-top:.18rem; color:var(--faint); font-family:"IBM Plex Mono",monospace; font-size:.65rem; }
+  .oms-flow{ display:grid; grid-template-columns:repeat(7,1fr); margin-top:2.6rem; border:1px solid var(--line-2); border-radius:13px; overflow:hidden; }
+  @media (max-width:900px){ .oms-flow{ grid-template-columns:repeat(4,1fr); } }
+  @media (max-width:520px){ .oms-flow{ grid-template-columns:1fr 1fr; } }
+  .oms-flow-step{ position:relative; min-height:5.8rem; padding:1rem .8rem; background:var(--bg-2); border-right:1px solid var(--line); }
+  .oms-flow-step:last-child{ border-right:0; }
+  .oms-flow-step .n{ font-family:"IBM Plex Mono",monospace; font-size:.66rem; color:var(--amber); }
+  .oms-flow-step .t{ margin-top:.35rem; font-size:.88rem; font-weight:600; }
+  .oms-flow-step .d{ margin-top:.22rem; color:var(--faint); font-size:.72rem; line-height:1.4; }
+  .oms-cap-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px; margin-top:1.4rem; background:var(--line); border:1px solid var(--line); border-radius:14px; overflow:hidden; }
+  @media (max-width:800px){ .oms-cap-grid{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:520px){ .oms-cap-grid{ grid-template-columns:1fr; } }
+  .oms-cap{ background:var(--bg-2); padding:1.2rem; }
+  .oms-cap h3{ margin:0 0 .45rem; font-size:1rem; }
+  .oms-cap p{ margin:0; color:var(--dim); font-size:.86rem; line-height:1.55; }
+  .oms-ai{ display:grid; grid-template-columns:.8fr 1.2fr; gap:clamp(1.4rem,4vw,3rem); margin-top:2.2rem; padding:clamp(1.3rem,3vw,1.8rem); border:1px solid rgba(79,208,192,.3); border-radius:16px; background:linear-gradient(135deg,var(--live-2),rgba(14,25,32,.78)); }
+  @media (max-width:760px){ .oms-ai{ grid-template-columns:1fr; } }
+  .oms-ai h3{ margin:.45rem 0 0; font-size:1.35rem; line-height:1.25; }
+  .oms-ai ul{ margin:0; padding-left:1.15rem; color:var(--dim); font-size:.9rem; }
+  .oms-ai li+li{ margin-top:.48rem; }
+  .oms-boundary{ margin-top:1rem; color:var(--faint); font-family:"IBM Plex Mono",monospace; font-size:.72rem; line-height:1.55; }
+
   /* reach band */
   .reach{ padding: clamp(2.2rem,5vw,3.4rem) 0; border-top:1px solid var(--line); }
   .reach p{ margin:0; max-width:64ch; color: var(--dim); font-size:1.05rem; }
@@ -224,6 +258,7 @@
       <a class="navlink" href="#local">Local</a>
       <a class="navlink" href="#router">Router</a>
       <a class="navlink" href="#programs">Programs</a>
+      <a class="navlink" href="#oms">OMS</a>
       <a class="navlink" href="#security">Security</a>
       <a class="ghlink" href="https://github.com/dineshsrivastava07-cell" target="_blank" rel="noopener">GitHub</a>
     </nav>
@@ -410,7 +445,7 @@
   <section class="block" id="programs">
     <div class="wrap">
       <span class="eyebrow">what the lab builds</span>
-      <h2>Seven programs on one substrate.</h2>
+      <h2>Eight programs on one substrate.</h2>
       <div class="prose">
         <p>Each program is a specialisation with its own crew of models and MCP tools, and each earns its keep the same way — local where it can, cloud where it must, private throughout. Two of them are foundations the rest stand on: a context layer that remembers, and an orchestration layer that decides.</p>
       </div>
@@ -487,6 +522,80 @@
           </dl>
         </div>
 
+        <div class="prog-item">
+          <div class="pid">program 08</div>
+          <h3>dsr-OMS — omnichannel operations</h3>
+          <p class="what">A browser-based, mobile-responsive order-management platform for Indian retail. It brings marketplace, ONDC, webstore, store/POS, warehouse, logistics and ERP workflows into one operational model, with deterministic routing and an advisory AI copilot.</p>
+          <dl class="who">
+            <dt>operators</dt><dd>One workbench for order exceptions, allocation, fulfilment, returns, refunds, inventory and reconciliation.</dd>
+            <dt>retailers</dt><dd>A governed foundation for omnichannel scale, with explicit integration boundaries and human-controlled AI.</dd>
+          </dl>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="oms">
+    <div class="wrap">
+      <div class="oms-head">
+        <div>
+          <span class="eyebrow">dsr-OMS · Indian omnichannel retail</span>
+          <h2>One operational spine for every order channel.</h2>
+          <div class="prose">
+            <p><b>dsr-OMS</b> normalises orders from marketplaces, ONDC, the brand webstore, stores and warehouses into one canonical workflow. Operators see orders, shipments, routing, inventory, locations, integrations, AI insights and audit history in a single responsive workspace.</p>
+            <p>The transactional core is deliberately deterministic. It reserves sellable stock, minimises shipment splits, selects eligible fulfilment locations, enforces a four-hour allocation-acceptance SLA, and releases stock before rerouting when a location does not accept on time.</p>
+          </div>
+          <div class="profile-links">
+            <a class="profile-link" href="https://github.com/dineshsrivastava07-cell/DSR-OMS" target="_blank" rel="noopener">View DSR-OMS repository</a>
+          </div>
+        </div>
+
+        <aside class="oms-status" aria-label="dsr-OMS release status">
+          <div class="oms-status-top"><span>release boundary</span><span class="oms-status-pill">working local MVP</span></div>
+          <h3>Implemented core. Explicit production gates.</h3>
+          <p>The application, APIs and transactional workflows run locally and are covered by automated tests. Live provider use still requires tenant credentials, mappings, sandbox certification, enterprise identity, managed infrastructure and business UAT.</p>
+          <div class="oms-kpis">
+            <div class="oms-kpi"><strong>4 hours</strong><span>allocation acceptance SLA</span></div>
+            <div class="oms-kpi"><strong>8</strong><span>seeded channel templates</span></div>
+            <div class="oms-kpi"><strong>HMAC</strong><span>signed webhook intake</span></div>
+            <div class="oms-kpi"><strong>read-only</strong><span>AI operations boundary</span></div>
+          </div>
+        </aside>
+      </div>
+
+      <div class="oms-flow" aria-label="dsr-OMS order lifecycle">
+        <div class="oms-flow-step"><div class="n">01</div><div class="t">Ingest</div><div class="d">Idempotent channel order intake</div></div>
+        <div class="oms-flow-step"><div class="n">02</div><div class="t">Reserve</div><div class="d">Sellable stock and safety stock</div></div>
+        <div class="oms-flow-step"><div class="n">03</div><div class="t">Route</div><div class="d">Zone, distance and priority scoring</div></div>
+        <div class="oms-flow-step"><div class="n">04</div><div class="t">Accept</div><div class="d">Four-hour SLA or atomic reroute</div></div>
+        <div class="oms-flow-step"><div class="n">05</div><div class="t">Fulfil</div><div class="d">Invoice, AWB, pick and pack</div></div>
+        <div class="oms-flow-step"><div class="n">06</div><div class="t">Dispatch</div><div class="d">Manifest and stock commitment</div></div>
+        <div class="oms-flow-step"><div class="n">07</div><div class="t">Resolve</div><div class="d">Return, QC, refund and reconcile</div></div>
+      </div>
+
+      <div class="oms-cap-grid">
+        <article class="oms-cap"><h3>Unified order workspace</h3><p>Central views for multi-channel orders, shipments, exceptions, inventory, locations, integrations and audit history.</p></article>
+        <article class="oms-cap"><h3>Deterministic smart routing</h3><p>Scores sellable stock, safety stock, service zone, proximity, location priority and warehouse bias while minimising splits.</p></article>
+        <article class="oms-cap"><h3>Fulfilment lifecycle</h3><p>Confirm, GST invoice, delivery partner and AWB, pick, pack, manifest and dispatch with guarded state transitions.</p></article>
+        <article class="oms-cap"><h3>Returns and refunds</h3><p>Return request, item-level QC, sellable or damaged disposition, restock handling and refund queueing.</p></article>
+        <article class="oms-cap"><h3>Integration resilience</h3><p>Signed idempotent webhooks plus a transactional Ginesys invoice/refund outbox with retry, replay and reconciliation.</p></article>
+        <article class="oms-cap"><h3>Governed administration</h3><p>Channel catalogues, master data, PIN codes, logistics, ERP, gateway policy, RBAC and platform controls without storing secrets in the UI.</p></article>
+      </div>
+
+      <div class="oms-ai">
+        <div>
+          <span class="eyebrow">AI inside the guardrails</span>
+          <h3>An operations copilot that advises, never transacts.</h3>
+          <div class="oms-boundary">AI cannot accept, cancel, reroute, reserve stock, issue refunds or update ERP state. Deterministic services remain authoritative.</div>
+        </div>
+        <ul>
+          <li>Reads a masked operational snapshot and returns structured summaries, risks, recommendations and confidence.</li>
+          <li>Uses local Gemma 4 E4B through Ollama by default; approved cloud providers are opt-in through server-side configuration.</li>
+          <li>Flags breached acceptance SLAs, stockout exposure, channel exceptions, and shipment delay or return-to-origin risk for human review.</li>
+          <li>Falls back safely to an explicitly labelled deterministic summary when a model is unavailable or returns invalid output.</li>
+          <li>Audits provider, model, input hash, latency, status and fallback use without recording the full prompt or customer PII.</li>
+        </ul>
       </div>
     </div>
   </section>
