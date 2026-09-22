@@ -5,6 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>dsrailab — Dinesh Srivastava | AI Leadership &amp; Engineering</title>
 <meta name="description" content="Dinesh Srivastava is an enterprise technology leader and hands-on AI engineer building agentic systems, MCP platforms, data architecture, and secure local-first AI at dsrailab." />
+<meta name="theme-color" content="#0A1116" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="dsrailab" />
+<link rel="icon" href="/assets/dsrailab-mark.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+<link rel="manifest" href="/manifest.webmanifest" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -57,8 +65,8 @@
     background: rgba(10,17,22,.72); backdrop-filter: blur(12px) saturate(1.4);
     border-bottom:1px solid var(--line); }
   .bar{ display:flex; align-items:center; gap:1.4rem; }
-  .mark{ display:flex; align-items:center; gap:.6rem; font-weight:700; letter-spacing:-.02em; font-size:1.06rem; }
-  .mark .dot{ width:11px; height:11px; border-radius:2px; background: var(--amber); box-shadow:0 0 0 4px var(--amber-2); }
+  .mark{ display:flex; align-items:center; gap:.62rem; font-weight:700; letter-spacing:-.02em; font-size:1.06rem; }
+  .brand-symbol{ width:29px; height:29px; display:block; flex:0 0 auto; }
   nav{ margin-left:auto; display:flex; gap:1.4rem; align-items:center; }
   nav a{ color: var(--dim); font-size:.93rem; font-weight:500; transition: color .18s; }
   nav a:hover{ color: var(--text); }
@@ -194,8 +202,8 @@
   footer{ border-top:1px solid var(--line); padding:2.6rem 0 3.2rem; }
   .foot-grid{ display:flex; flex-wrap:wrap; gap:1rem 2rem; align-items:center; justify-content:space-between; }
   .foot-grid .meta{ font-family:"IBM Plex Mono",monospace; font-size:.8rem; color: var(--faint); }
-  .foot-mark{ display:flex; align-items:center; gap:.55rem; font-weight:700; letter-spacing:-.02em; }
-  .foot-mark .dot{ width:10px; height:10px; border-radius:2px; background: var(--amber); }
+  .foot-mark{ display:flex; align-items:center; gap:.6rem; font-weight:700; letter-spacing:-.02em; }
+  .foot-mark .brand-symbol{ width:26px; height:26px; }
 
   @media (prefers-reduced-motion: no-preference){
     .anim{ opacity:0; transform: translateY(14px); animation: rise .7s cubic-bezier(.2,.7,.2,1) forwards; }
@@ -209,7 +217,7 @@
 
 <header>
   <div class="wrap bar">
-    <a href="#top" class="mark"><span class="dot"></span>dsrailab</a>
+    <a href="#top" class="mark" aria-label="dsrailab home"><img class="brand-symbol" src="/assets/dsrailab-mark.svg" alt="" width="29" height="29" />dsrailab</a>
     <nav>
       <a class="navlink" href="#about">About</a>
       <a class="navlink" href="#system">System</a>
@@ -516,7 +524,7 @@
 
 <footer>
   <div class="wrap foot-grid">
-    <div class="foot-mark"><span class="dot"></span>dsrailab</div>
+    <div class="foot-mark"><img class="brand-symbol" src="/assets/dsrailab-mark.svg" alt="" width="26" height="26" />dsrailab</div>
     <div class="meta">independent AI research · Delhi NCR · IST</div>
     <div class="meta">© <span id="yr">2026</span> dsrailab.com</div>
   </div>
@@ -529,6 +537,15 @@
     clock.textContent = new Date().toLocaleTimeString('en-GB',{ timeZone:'Asia/Kolkata', hour12:false }) + ' IST';
   }
   tick(); setInterval(tick, 1000);
+
+  if ('serviceWorker' in navigator &&
+      (location.protocol === 'https:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1')) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js').catch(error => {
+        console.warn('Service worker registration failed:', error);
+      });
+    });
+  }
 </script>
 </body>
 </html>
