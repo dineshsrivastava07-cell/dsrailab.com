@@ -1,10 +1,9 @@
-const CACHE_NAME = 'dsrailab-shell-v1';
+const CACHE_NAME = 'dsrailab-shell-v2';
 const APP_SHELL = [
   '/',
   '/index.html',
   '/manifest.webmanifest',
-  '/assets/dsrailab-mark.svg',
-  '/assets/dsrailab-app-icon.svg',
+  '/assets/dsrailab-main-logo-transparent-1024.png',
   '/icons/icon-192.png',
   '/icons/icon-512.png',
   '/icons/apple-touch-icon.png'

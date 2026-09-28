@@ -13,9 +13,8 @@ Official website source for [dsrailab.com](https://dsrailab.com).
 ## Files
 
 - `index.html` — production website.
-- `assets/dsrailab-mark.svg` — scalable master brand mark.
-- `assets/dsrailab-app-icon.svg` — full-bleed mobile app icon source.
-- `icons/` — generated app and Apple touch icons.
+- `assets/dsrailab-main-logo-transparent-1024.png` — supplied transparent master brand mark used by the website.
+- `icons/` — app and Apple touch icons generated from the supplied master mark.
 - `manifest.webmanifest` — installable mobile web-app identity and theme.
 - `sw.js` — network-first app shell with offline fallback.
 - `CNAME` — GitHub Pages custom-domain configuration.
@@ -24,9 +23,9 @@ Official website source for [dsrailab.com](https://dsrailab.com).
 
 The mark combines three connected nodes into a lowercase `d`: amber represents
 leadership and judgment, teal represents agents and data, and the continuous
-loop represents the relationships that make the system useful. Use the SVG
-master for website and print placement; use the full-bleed app icon for mobile
-launchers and masked icon surfaces.
+loop represents the relationships that make the system useful. Use the supplied
+transparent PNG master for website placement and derived sizes for mobile app
+and touch-icon surfaces without altering its design, pattern, or colours.
 
 ## Publish updates
 

@@ -10,7 +10,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 <meta name="apple-mobile-web-app-title" content="dsrailab" />
-<link rel="icon" href="/assets/dsrailab-mark.svg" type="image/svg+xml" />
+<link rel="icon" href="/assets/dsrailab-main-logo-transparent-1024.png" type="image/png" />
 <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
 <link rel="manifest" href="/manifest.webmanifest" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -66,7 +66,7 @@
     border-bottom:1px solid var(--line); }
   .bar{ display:flex; align-items:center; gap:1.4rem; }
   .mark{ display:flex; align-items:center; gap:.62rem; font-weight:700; letter-spacing:-.02em; font-size:1.06rem; }
-  .brand-symbol{ width:29px; height:29px; display:block; flex:0 0 auto; }
+  .brand-symbol{ width:29px; height:29px; display:block; flex:0 0 auto; transform:scale(1.55); transform-origin:center; }
   nav{ margin-left:auto; display:flex; gap:1.4rem; align-items:center; }
   nav a{ color: var(--dim); font-size:.93rem; font-weight:500; transition: color .18s; }
   nav a:hover{ color: var(--text); }
@@ -141,6 +141,13 @@
   .profile-metric{ background:rgba(10,17,22,.7); padding:.9rem; }
   .profile-metric strong{ display:block; color:var(--text); font-size:1.18rem; line-height:1.2; }
   .profile-metric span{ display:block; margin-top:.25rem; color:var(--faint); font-family:"IBM Plex Mono",monospace; font-size:.68rem; }
+  .profile-credentials{ margin-top:1.35rem; padding-top:1.2rem; border-top:1px solid var(--line); }
+  .profile-tags{ display:flex; flex-wrap:wrap; gap:.45rem; margin-top:.75rem; }
+  .profile-tag{ font-family:"IBM Plex Mono",monospace; font-size:.68rem; color:var(--live); background:var(--live-2); border:1px solid rgba(79,208,192,.24); border-radius:999px; padding:.28rem .55rem; }
+  .credential-list{ display:grid; gap:.72rem; margin:.95rem 0 0; padding:0; list-style:none; }
+  .credential-list li{ display:grid; gap:.15rem; }
+  .credential-list strong{ color:var(--text); font-size:.82rem; }
+  .credential-list span{ color:var(--faint); font-family:"IBM Plex Mono",monospace; font-size:.67rem; line-height:1.45; }
   .expertise-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px; margin-top:2.6rem; background:var(--line); border:1px solid var(--line); border-radius:14px; overflow:hidden; }
   @media (max-width: 820px){ .expertise-grid{ grid-template-columns:1fr 1fr; } }
   @media (max-width: 520px){ .expertise-grid{ grid-template-columns:1fr; } }
@@ -251,7 +258,7 @@
 
 <header>
   <div class="wrap bar">
-    <a href="#top" class="mark" aria-label="dsrailab home"><img class="brand-symbol" src="/assets/dsrailab-mark.svg" alt="" width="29" height="29" />dsrailab</a>
+    <a href="#top" class="mark" aria-label="dsrailab home"><img class="brand-symbol" src="/assets/dsrailab-main-logo-transparent-1024.png" alt="" width="29" height="29" />dsrailab</a>
     <nav>
       <a class="navlink" href="#about">About</a>
       <a class="navlink" href="#system">System</a>
@@ -320,6 +327,22 @@
         </div>
       </div>
     </div>
+    <div class="wrap">
+      <div class="bgrid anim d5" aria-label="dsrailab objective, vision and strategic roadmap">
+        <div class="bcell">
+          <div class="bk">Objective</div>
+          <div class="bt">Build secure, practical AI systems that connect executive intent, enterprise knowledge, and operational workflows while keeping sensitive execution local.</div>
+        </div>
+        <div class="bcell">
+          <div class="bk">Vision</div>
+          <div class="bt">Make governed agentic intelligence a dependable, owned enterprise capability - provider-neutral, auditable, reproducible, and useful at scale.</div>
+        </div>
+        <div class="bcell">
+          <div class="bk">Strategic roadmap</div>
+          <div class="bt">Foundation → intelligence → operations → scale: strengthen local-first MCP infrastructure, mature context-aware agent products, operationalise dsr-OMS, then certify integrations and deploy with monitoring and human oversight.</div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <section class="block" id="about">
@@ -330,7 +353,7 @@
           <h2>Strategy at board level. Engineering at system level.</h2>
           <div class="prose">
             <p><b>Dinesh Srivastava</b> is an enterprise technology leader and hands-on AI engineer with more than two decades of experience spanning IT strategy, digital transformation, data platforms, cybersecurity, and applied artificial intelligence.</p>
-            <p>He has led technology at national retail scale across a network of <b>570+ stores serving Tier 2, 3, and 4 markets in India</b>. At dsrailab, he turns that operating perspective into working systems: production LLM architecture, multi-agent orchestration, MCP integrations, governed data platforms, and secure local-first infrastructure.</p>
+            <p>He has led technology at national retail scale across a network of <b>600+ stores serving Tier 2, 3, and 4 markets in India</b>. At dsrailab, he turns that operating perspective into working systems: production LLM architecture, multi-agent orchestration, MCP integrations, governed data platforms, and secure local-first infrastructure.</p>
             <p>His approach is deliberately practical and provider-neutral: define the business outcome, design the controls, build the platform, and verify the behaviour. The work connects long-horizon leadership with the discipline to write, test, and ship the code.</p>
           </div>
           <div class="profile-links" aria-label="Dinesh Srivastava professional links">
@@ -347,9 +370,23 @@
           <div class="place">Gurgaon / Delhi NCR · India</div>
           <div class="profile-metrics">
             <div class="profile-metric"><strong>20+</strong><span>years in technology</span></div>
-            <div class="profile-metric"><strong>570+</strong><span>stores at enterprise scale</span></div>
+            <div class="profile-metric"><strong>600+</strong><span>stores at enterprise scale</span></div>
             <div class="profile-metric"><strong>18</strong><span>professional credentials</span></div>
             <div class="profile-metric"><strong>02</strong><span>local-first lab nodes</span></div>
+          </div>
+          <div class="profile-credentials">
+            <div class="label">top skills &amp; selected credentials</div>
+            <div class="profile-tags" aria-label="Top skills">
+              <span class="profile-tag">AGI &amp; agentic systems</span>
+              <span class="profile-tag">Claude &amp; Claude Code</span>
+              <span class="profile-tag">Cybersecurity</span>
+              <span class="profile-tag">MCP &amp; agent skills</span>
+            </div>
+            <ul class="credential-list" aria-label="Selected professional credentials">
+              <li><strong>PG Certification, Cybersecurity</strong><span>NIT Rourkela · 2022</span></li>
+              <li><strong>Claude Code in Action</strong><span>Anthropic · 2026</span></li>
+              <li><strong>Model Context Protocol: Advanced Topics</strong><span>Anthropic · 2026</span></li>
+            </ul>
           </div>
         </aside>
       </div>
@@ -633,7 +670,7 @@
 
 <footer>
   <div class="wrap foot-grid">
-    <div class="foot-mark"><img class="brand-symbol" src="/assets/dsrailab-mark.svg" alt="" width="26" height="26" />dsrailab</div>
+    <div class="foot-mark"><img class="brand-symbol" src="/assets/dsrailab-main-logo-transparent-1024.png" alt="" width="26" height="26" />dsrailab</div>
     <div class="meta">independent AI research · Delhi NCR · IST</div>
     <div class="meta">© <span id="yr">2026</span> dsrailab.com</div>
   </div>
