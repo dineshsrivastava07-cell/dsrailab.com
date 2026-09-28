@@ -156,12 +156,13 @@ knowledge, and operational workflows while keeping sensitive execution local.
 
 ### Strategic roadmap
 
-The roadmap proceeds through **foundation → intelligence → operations → scale**:
+The roadmap proceeds through **Trust → Intelligence → Autonomy → Impact**:
 
-1. Strengthen local-first MCP infrastructure.
-2. Mature context-aware agent products.
-3. Operationalise dsr-OMS.
-4. Certify integrations and deploy with monitoring and human oversight.
+1. Establish sovereign AI, data architecture, and MCP foundations.
+2. Turn enterprise context into decision advantage.
+3. Automate high-value operations through governed agents.
+4. Scale certified solutions with measurable business value, continuous
+   assurance, and human accountability.
 
 ## 4. Founder and leadership profile
 
@@ -496,6 +497,7 @@ For every website update:
 
 | Date | Change |
 | --- | --- |
+| 28 Sep 2026 | Sharpened the Strategic Roadmap into Trust, Intelligence, Autonomy, and Impact, connecting sovereign foundations and governed agents to decision advantage, measurable business value, continuous assurance, and human accountability. |
 | 28 Sep 2026 | Sharpened the Vision around trusted and governed AI and AGI, smarter decisions, autonomous operations, and meaningful progress for business and society. |
 | 28 Sep 2026 | Added the Mission statement covering business excellence, responsible growth, governed agentic automation, local-first control, societal benefit, security, privacy, accountability, and human oversight. |
 | 28 Sep 2026 | Added the maintained site content register and repository rule requiring synchronized documentation updates. |
