@@ -142,9 +142,8 @@ knowledge, and operational workflows while keeping sensitive execution local.
 
 ### Vision
 
-Make governed agentic intelligence a dependable and owned enterprise
-capability that is provider-neutral, auditable, reproducible, and useful at
-scale.
+> Make trusted, governed AI and AGI the driving force behind smarter decisions,
+> autonomous operations, and meaningful progress for business and society.
 
 ### Mission
 
@@ -497,6 +496,7 @@ For every website update:
 
 | Date | Change |
 | --- | --- |
+| 28 Sep 2026 | Sharpened the Vision around trusted and governed AI and AGI, smarter decisions, autonomous operations, and meaningful progress for business and society. |
 | 28 Sep 2026 | Added the Mission statement covering business excellence, responsible growth, governed agentic automation, local-first control, societal benefit, security, privacy, accountability, and human oversight. |
 | 28 Sep 2026 | Added the maintained site content register and repository rule requiring synchronized documentation updates. |
 | 28 Sep 2026 | Expanded Dinesh Srivastava's enterprise leadership profile with distribution, WMS/TMS/WCS, warehouse scale, 700+ professional reach, hybrid data/AI, cybersecurity, and identity details. |
