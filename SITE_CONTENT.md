@@ -197,8 +197,9 @@ The profile states that he:
 
 ### Top skills
 
-- AGI and agentic systems
-- Claude and Claude Code
+- AI and autonomous agentic systems
+- Claude, Codex, and Gemini as the reasoning / brain layer
+- Local model tier as the action / execution layer
 - Cybersecurity
 - MCP and agent skills
 
@@ -497,6 +498,7 @@ For every website update:
 
 | Date | Change |
 | --- | --- |
+| 28 Sep 2026 | Refined the leadership-profile skills to distinguish AI and autonomous agentic systems, the Claude/Codex/Gemini reasoning layer, and the local-model action and execution layer. |
 | 28 Sep 2026 | Sharpened the Strategic Roadmap into Trust, Intelligence, Autonomy, and Impact, connecting sovereign foundations and governed agents to decision advantage, measurable business value, continuous assurance, and human accountability. |
 | 28 Sep 2026 | Sharpened the Vision around trusted and governed AI and AGI, smarter decisions, autonomous operations, and meaningful progress for business and society. |
 | 28 Sep 2026 | Added the Mission statement covering business excellence, responsible growth, governed agentic automation, local-first control, societal benefit, security, privacy, accountability, and human oversight. |
