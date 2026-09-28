@@ -35,7 +35,6 @@ implemented unless the website makes the same distinction.
 | Primary proposition | A secure, practical, local-first AI environment connecting enterprise leadership, knowledge, data, tools, and operational workflows |
 | Geography | Gurgaon / Delhi NCR, India; site clock uses IST |
 | Contact | `dsr07@dsrailab.com` |
-| GitHub owner | [`dineshsrivastava07-cell`](https://github.com/dineshsrivastava07-cell) |
 
 The HTML title is **“dsrailab — Dinesh Srivastava | AI Leadership &
 Engineering.”** The metadata description presents Dinesh as an enterprise
@@ -56,7 +55,6 @@ The fixed header contains the dsrailab logo and these destinations:
 | Programs | `#programs` | Eight lab programs |
 | OMS | `#oms` | dsr-OMS product and release boundary |
 | Security | `#security` | Security and resilience principles |
-| GitHub | External profile | GitHub account for Dinesh Srivastava |
 
 The `#nodes` and `#build` sections are part of the page but do not have
 dedicated header navigation links.
@@ -89,7 +87,7 @@ The page currently contains 43 `h1`–`h3` headings, in this source order:
 22. The workstation
 23. The tier router.
 24. Eight programs on one substrate.
-25. Claude tier — coding system
+25. Hybrid AI coding system
 26. dsr-CoworkAI
 27. DSR-codesign
 28. Data Architect
@@ -128,10 +126,11 @@ The page currently contains 43 `h1`–`h3` headings, in this source order:
 
 The visual topology currently shows:
 
-1. Claude over OAuth as the cloud reasoning brain.
-2. `qwen3-coder-480b` as the heavyweight cloud coder.
+1. A cloud intelligence layer for reasoning and planning over OAuth.
+2. A cloud specialist layer for complex analysis and code synthesis.
 3. `intercept.py` as the `PreToolUse` router and tier enforcer.
-4. Two local Gemma 4 nodes: an always-on server and a workstation.
+4. Two private local AI execution nodes: an always-on server and a
+   workstation.
 
 The clock is generated in the browser and displays current Asia/Kolkata time.
 
@@ -198,21 +197,20 @@ The profile states that he:
 ### Top skills
 
 - AI and autonomous agentic systems
-- Claude, Codex, and Gemini as the reasoning / brain layer
-- Local model tier as the action / execution layer
+- Cloud intelligence layer for reasoning and planning
+- Private local AI layer for action and execution
 - Cybersecurity
 - MCP and agent skills
 
 ### Selected credentials
 
 - PG Certification in Cybersecurity — NIT Rourkela, 2022
-- Claude Code in Action — Anthropic, 2026
-- Model Context Protocol: Advanced Topics — Anthropic, 2026
+- AI-Assisted Software Engineering — professional credential, 2026
+- Model Context Protocol: Advanced Topics — professional credential, 2026
 
 ### Professional links
 
 - [LinkedIn](https://www.linkedin.com/in/dinesh-srivastav-a937594a)
-- [GitHub](https://github.com/dineshsrivastava07-cell)
 - Email: `dsr07@dsrailab.com`
 
 ## 5. Enterprise transformation and supply-chain leadership
@@ -250,9 +248,9 @@ The technical expertise grid contains six subjects:
    architecture, PII isolation, and embedded controls.
 5. **IT Strategy & Transformation** — roadmaps, team and operating-model design,
    retail digitisation, and supply-chain digitisation across hybrid estates.
-6. **Hands-on Engineering** — Python, FastAPI, Docker, Ollama, local/cloud
-   models, agent toolchains, vector search, analytics, and reproducible
-   infrastructure.
+6. **Hands-on Engineering** — Python, FastAPI, Docker, private local AI
+   runtimes, cloud intelligence services, agent toolchains, vector search,
+   analytics, and reproducible infrastructure.
 
 ## 7. System thesis and local-first benefits
 
@@ -279,8 +277,8 @@ boundary, and local-first default.
 
 | Node | Models/runtime | Role |
 | --- | --- | --- |
-| Node 01 — always-on server | Gemma 4, `nomic-embed-text`, containerised warm services | Persistent services, retrieval, and embeddings |
-| Node 02 — workstation | Gemma 4, tier harness, containerised interactive services | Interactive development and routing brain |
+| Node 01 — always-on server | Private local AI, embedding services, containerised warm services | Persistent services, retrieval, and embeddings |
+| Node 02 — workstation | Private local AI, execution harness, containerised interactive services | Interactive development and routing brain |
 
 The public architecture statement is that neither node depends on the other.
 
@@ -290,15 +288,16 @@ The routing section presents a four-stage sequence:
 
 1. **Classify** — `intercept.py` evaluates the pending tool call against the
    tier map.
-2. **Route** — reasoning/review goes to the cloud brain, heavyweight generation
-   may use the cloud coder, and volume execution goes to local Gemma 4 models.
+2. **Route** — reasoning/review goes to the cloud intelligence layer, complex
+   generation may use a cloud specialist, and volume execution stays with
+   private local AI.
 3. **Enforce** — a FastMCP stdio tier enforcer applies the boundary across a
    six-layer harness.
 4. **Return** — the cloud reasoning layer receives only material that needs a
    decision.
 
-Displayed labels include “Claude Tier System · v10.1,” “six-layer harness,” and
-“production-grade · local-first.”
+Displayed labels include “Hybrid AI Tier System · v10.1,” “six-layer harness,”
+and “production-grade · local-first.”
 
 ## 10. Lab programs
 
@@ -306,7 +305,7 @@ The site lists eight programs on a shared local-first substrate:
 
 | Program | Subject and audience value |
 | --- | --- |
-| 01 — Claude tier, coding system | Cloud reasoning over local Gemma 4 executors and a heavyweight cloud coder; intended to provide auditable routing and bounded cloud use |
+| 01 — Hybrid AI coding system | Cloud intelligence over private local AI execution and an elastic cloud specialist; intended to provide auditable routing and bounded cloud use |
 | 02 — dsr-CoworkAI | Private agentic knowledge work for briefs, research, drafting, documents, calendars, and multi-step workflows |
 | 03 — DSR-codesign | Agentic design-to-prototype loop with reproducible engineering handoffs |
 | 04 — Data Architect | Local-first schema, pipeline, natural-language-to-SQL, semantic layer, data-quality, retrieval, and embedding work |
@@ -374,8 +373,7 @@ supports approved local or opt-in cloud providers, flags risk for human review,
 falls back to deterministic summaries, and audits operational metadata without
 recording full prompts or customer PII.
 
-The section links to the
-[`DSR-OMS` repository](https://github.com/dineshsrivastava07-cell/DSR-OMS).
+The public section does not expose source-repository or account links.
 
 ## 12. Research, build, security, and resilience
 
@@ -465,7 +463,7 @@ offline navigation. The current cache name is `dsrailab-shell-v2`.
 
 | Item | Current configuration |
 | --- | --- |
-| Repository | [`dineshsrivastava07-cell/dsrailab.com`](https://github.com/dineshsrivastava07-cell/dsrailab.com) |
+| Repository | Hosting source repository; not linked from the public website |
 | Publishing branch | `main` |
 | Publishing source | Repository root |
 | Hosting | GitHub Pages |
@@ -498,7 +496,8 @@ For every website update:
 
 | Date | Change |
 | --- | --- |
-| 28 Sep 2026 | Refined the leadership-profile skills to distinguish AI and autonomous agentic systems, the Claude/Codex/Gemini reasoning layer, and the local-model action and execution layer. |
+| 28 Sep 2026 | Removed public model/provider names and GitHub account/repository links; adopted cloud-intelligence and private-local-AI terminology throughout the website. |
+| 28 Sep 2026 | Refined the leadership-profile skills to distinguish AI and autonomous agentic systems, the cloud reasoning layer, and the private local action and execution layer. |
 | 28 Sep 2026 | Sharpened the Strategic Roadmap into Trust, Intelligence, Autonomy, and Impact, connecting sovereign foundations and governed agents to decision advantage, measurable business value, continuous assurance, and human accountability. |
 | 28 Sep 2026 | Sharpened the Vision around trusted and governed AI and AGI, smarter decisions, autonomous operations, and meaningful progress for business and society. |
 | 28 Sep 2026 | Added the Mission statement covering business excellence, responsible growth, governed agentic automation, local-first control, societal benefit, security, privacy, accountability, and human oversight. |
