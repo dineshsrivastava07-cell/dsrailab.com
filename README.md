@@ -13,6 +13,10 @@ Official website source for [dsrailab.com](https://dsrailab.com).
 ## Files
 
 - `index.html` — production website.
+- `SITE_CONTENT.md` — maintained register of all website content, subjects,
+  claims, sections, assets, and publishing details.
+- `AGENTS.md` — repository rule requiring the content register to be updated
+  with future website changes.
 - `assets/dsrailab-main-logo-transparent-1024.png` — supplied transparent master brand mark used by the website.
 - `icons/` — app and Apple touch icons generated from the supplied master mark.
 - `manifest.webmanifest` — installable mobile web-app identity and theme.
@@ -29,5 +33,6 @@ and touch-icon surfaces without altering its design, pattern, or colours.
 
 ## Publish updates
 
-Commit and push changes to `main`. GitHub Pages deploys the updated site
-automatically.
+Update [`SITE_CONTENT.md`](SITE_CONTENT.md) in the same commit whenever a site
+change affects its documented content or behaviour. Commit and push changes to
+`main`; GitHub Pages deploys the updated site automatically.

@@ -162,6 +162,9 @@
   .bgrid{ display:grid; grid-template-columns: repeat(3,1fr); gap:1px; background: var(--line); border:1px solid var(--line); border-radius:14px; overflow:hidden; margin-top:2.2rem; }
   @media (max-width: 720px){ .bgrid{ grid-template-columns:1fr 1fr; } }
   @media (max-width: 440px){ .bgrid{ grid-template-columns:1fr; } }
+  .strategy-grid{ grid-template-columns:repeat(4,1fr); }
+  @media (max-width: 940px){ .strategy-grid{ grid-template-columns:1fr 1fr; } }
+  @media (max-width: 440px){ .strategy-grid{ grid-template-columns:1fr; } }
   .bcell{ background: var(--bg-2); padding:1.25rem 1.25rem; }
   .bcell .bk{ font-weight:600; font-size:1rem; }
   .bcell .bt{ margin-top:.45rem; color: var(--dim); font-size:.9rem; line-height:1.55; }
@@ -330,7 +333,7 @@
       </div>
     </div>
     <div class="wrap">
-      <div class="bgrid anim d5" aria-label="dsrailab objective, vision and strategic roadmap">
+      <div class="bgrid strategy-grid anim d5" aria-label="dsrailab objective, vision, mission and strategic roadmap">
         <div class="bcell">
           <div class="bk">Objective</div>
           <div class="bt">Build secure, practical AI systems that connect executive intent, enterprise knowledge, and operational workflows while keeping sensitive execution local.</div>
@@ -338,6 +341,10 @@
         <div class="bcell">
           <div class="bk">Vision</div>
           <div class="bt">Make governed agentic intelligence a dependable, owned enterprise capability - provider-neutral, auditable, reproducible, and useful at scale.</div>
+        </div>
+        <div class="bcell">
+          <div class="bk">Mission</div>
+          <div class="bt">Help businesses and society achieve responsible, sustainable progress by combining secure local-first AI with governed agentic automation and responsibly autonomous workflows - improving operational excellence, productivity, decision-making, and scalable growth while keeping sensitive data under organisational control, people in oversight, and security, privacy, accountability, and governance built into every workflow.</div>
         </div>
         <div class="bcell">
           <div class="bk">Strategic roadmap</div>
